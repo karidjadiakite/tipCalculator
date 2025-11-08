@@ -61,14 +61,14 @@ class MainActivity : ComponentActivity()
 }
 @Composable
 fun TipTimeLayout() {
-    // declaration de la variable
+
     var amountInput by remember { mutableStateOf("") }
     var tipInput by remember { mutableStateOf("") }
     var roundUp by remember { mutableStateOf(false) }
-    //Appelez la fonction toDoubleOrNull sur la variable amountInput pour la convertir de String en Double
+
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tipPercent=tipInput.toDoubleOrNull() ?: 0.0
-    //calculons le tip
+
     val tip = calculateTip(amount,tipPercent,roundUp)
 
     Column(
@@ -117,7 +117,7 @@ fun TipTimeLayout() {
         Spacer(modifier = Modifier.height(150.dp))
     }
 }
-//gerer la zone de saisie du montant
+
 @Composable
 fun EditNumberField(
     @StringRes label: Int,
@@ -130,14 +130,14 @@ fun EditNumberField(
 )
 
 {
-    //changer la decoration de Textfield
+
     TextField (
         value = value,
         onValueChange = onValueChange ,
         label= { Text (stringResource(label))},
-        //on dit que la zone de saisie comporte une seuligne
+
         singleLine = true,
-        //Modifier l'apparence
+
         keyboardOptions =  keyboardOptions,
         leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null)},
         modifier = modifier,
